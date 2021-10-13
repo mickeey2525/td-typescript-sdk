@@ -40,8 +40,8 @@ export class TDClient {
         })
     }
 
-    async getJobResult(jobId: number): Promise<Response> {
-        const path = `v3/job/result/${jobId}`
+    async getJobResult(jobId: number, format: string = 'json'): Promise<Response> {
+        const path = `v3/job/result/${jobId}?format=${format}`
         const method = 'GET'
         return await this.request(path, method).catch(err => {
             throw new Error(`Failed to call API: ${err}`)
@@ -52,4 +52,19 @@ export class TDClient {
     sleep(seconds: number) {
         return new Promise((resolve => setTimeout(resolve, seconds * 1000)))
     }
+
+    async listDatabases(): Promise<Response> {
+        const path = 'v3/database/list'
+        const method = 'GET'
+        return await this.request(path, method).catch(err => {
+            throw new Error(`Failed to call API: ${err}`)
+        })
+    }
+
+    async jobList(from: number = 0, to: number = 0, status?: string): Promise<Response> {
+        const path = 'v3/job/list'
+        const method = 'GET'
+        return await this.request(path, method)
+    }
+
 }

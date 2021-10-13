@@ -18,5 +18,11 @@ for(;;) {
 }
 
 console.log(status.num_records)
-let result = await td.getJobResult(status.job_id)
+let result = await td.getJobResult(status.job_id, 'tsv')
 console.log(await result.text())
+
+result = await td.listDatabases()
+console.log(await result.json())
+
+result = await td.jobList()
+console.log(await result.json())
