@@ -19,17 +19,24 @@ export class TDClient {
 
     private async request(path: string, method: string, ...opts: any): Promise<Response> {
         const url = this.endpoint + '/' + path
-        return await fetch(
-            `${url}`,
-            {
-                method: method,
-                headers: {
-                    'Authorization': `TD1 ${this.apikey}`
+        try {
+            const res = await fetch(
+                `${url}`,
+                {
+                    method: method,
+                    headers: {
+                        'Authorization': `TD1 ${this.apikey}`
+                    }
                 }
+            )
+            if (res.status <= 299 && res.status >= 200) {
+                return res
+            } else {
+                return Promise.reject(`Error: ${res.status}, ${await res.text()}`)
             }
-        ).catch(err => {
-            throw new Error(`Error Happened: ${err}`)
-        });
+        } catch (e) {
+            return Promise.reject(`Error: ${e}`)
+        }
     }
 
     async getJobStatus(jobId: number): Promise<Response> {
@@ -56,9 +63,7 @@ export class TDClient {
     async listDatabases(): Promise<Response> {
         const path = 'v3/database/list'
         const method = 'GET'
-        return await this.request(path, method).catch(err => {
-            throw new Error(`Failed to call API: ${err}`)
-        })
+        return await this.request(path, method)
     }
 
     async jobList(from: number = 0, to: number = 0, status?: string): Promise<Response> {
