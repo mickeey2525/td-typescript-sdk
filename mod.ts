@@ -67,9 +67,8 @@ export class TDClient {
     }
 
     async jobList(from: number = 0, to: number = 0, status?: string): Promise<Response> {
-        const path = 'v3/job/list'
+        const path = `v3/job/list?=from_id=${from}&to_id=${to}&status=${status}`
         const method = 'GET'
         return await this.request(path, method)
     }
-
 }

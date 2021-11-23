@@ -1,4 +1,4 @@
-import { TDClient } from "../mod.ts";
+import { TDClient } from "https://github.com/mickeey2525/td-typescript-sdk/raw/main/mod.ts";
 
 const apiKey = Deno.env.get('TD_API_KEY') as string
 const td = new TDClient('https://api.treasuredata.com', apiKey)
@@ -25,9 +25,9 @@ try {
     result = await td.listDatabases()
     console.log(await result.json())
 
-    result = await td.jobList()
+    result = await td.jobList(0,1, 'success')
     console.log(await result.json())
-}catch(e) {
+} catch(e) {
     console.log(e)
 }
 
