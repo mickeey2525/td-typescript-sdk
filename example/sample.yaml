@@ -1,0 +1,36 @@
+name: datamodel_name
+apikey: "your_master_key" # Master API key for data ingestion
+
+type: elasticube
+
+# user email whom this datamodel should be shared with
+shared_users:
+
+datamodel:
+  datasets:
+    sample_datasets: # dataset name
+      type: presto # only presot right now
+      database: sample_datasets # database name
+      tables:
+        nasdaq: # table name
+          columns:
+            symbol: # column name
+              type: text
+              indexed: true
+            volume:
+              type: int
+        www_access: # table name 2
+          columns:
+            host:
+              type: text
+            code:
+              type: int
+
+  relations:
+    -
+      - dataset: sample_datasets
+        table: nasdaq
+        column: symbol
+      - dataset: sample_datasets
+        table: www_access
+        column: host
