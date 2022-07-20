@@ -1,8 +1,6 @@
 import { path } from "./deps.ts";
 import { parse } from "./deps.ts";
-
-type dataModelType = "elasticube" | "live";
-type dataBuildType = "full" | "schema_changes" | "by_table";
+import { dataModelType, dataBuildType} from "./type.ts";
 
 export class TDClient {
   public endpoint: string;

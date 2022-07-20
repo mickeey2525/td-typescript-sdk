@@ -16,3 +16,6 @@ export type JobStatus = {
   status: string;
   updated_at: string;
 };
+
+export type dataModelType = "elasticube" | "live";
+export type dataBuildType = "full" | "schema_changes" | "by_table";
