@@ -17,5 +17,8 @@ export type JobStatus = {
   updated_at: string;
 };
 
-export type dataModelType = "elasticube" | "live";
-export type dataBuildType = "full" | "schema_changes" | "by_table";
+const dataModelType = ["elasticube" , "live"] as const;
+export type dataModelType = typeof dataModelType[keyof typeof dataModelType];
+
+const dataBuildType = ["full" , "schema_changes" , "by_table"] as const;
+export type dataBuildType = typeof dataBuildType[keyof typeof dataBuildType]
