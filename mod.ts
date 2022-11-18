@@ -31,7 +31,7 @@ export class TDClient {
   async query(type: string, db: string, query: string): Promise<Response> {
     const encodedQuery = encodeURI(query);
     const path = `v3/job/issue/${type}/${db}?query=${encodedQuery}`;
-    let param: RequestInit = {
+    const param: RequestInit = {
       method: "POST",
       headers: {
         "Authorization": `TD1 ${this.apikey}`,

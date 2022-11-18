@@ -22,3 +22,4 @@ export type dataModelType = typeof dataModelType[keyof typeof dataModelType];
 
 const dataBuildType = ["full" , "schema_changes" , "by_table"] as const;
 export type dataBuildType = typeof dataBuildType[keyof typeof dataBuildType]
+

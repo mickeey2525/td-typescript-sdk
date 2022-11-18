@@ -35,7 +35,7 @@ try {
 
 
 let oid_mine;
-
+/*
 try {
   const res = await td.creteDataModel("./sample.yaml");
   const resObj = await res.json();
@@ -44,6 +44,7 @@ try {
 } catch (e) {
   console.log(e);
 }
+*/
 
 try {
   const res = await td.getDataModels("elasticube");
@@ -53,9 +54,10 @@ try {
   console.log(e);
 }
 
+
 try {
   const res = await td.getDataModelWithId(
-    "706d8c8e-395b-43d3-b39a-1eaf19a05519",
+    "cfc0a141-6605-4dce-a461-89752adf5aa3",
   );
   const resObj = await res.json();
   console.log(JSON.stringify(resObj));
@@ -63,6 +65,7 @@ try {
   console.log(e);
 }
 
+/*
 try {
   const res = await td.updateDataModel(
     "706d8c8e-395b-43d3-b39a-1eaf19a05519",
@@ -95,5 +98,6 @@ try {
   console.log(e);
 }
 
+ */
 //const res = td.deleteDataModel(oid_mine);
 //console.log(JSON.stringify(res));
