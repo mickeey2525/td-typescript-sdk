@@ -3,8 +3,8 @@ import { parse } from "./deps.ts";
 import { dataModelType, dataBuildType} from "./type.ts";
 
 export class TDClient {
-  public endpoint: string;
-  public apikey: string;
+  private readonly endpoint: string;
+  private readonly apikey: string;
 
   constructor(endpoint: string, apikey: string) {
     this.endpoint = endpoint;

@@ -1,8 +1,8 @@
 # TreasureData TypeScript SDK(Not official)
 
-非公式のDeno TypeScript向けのTreasure Data SDKです。 どれだけ需要があるかはわかりませんが、公式のドキュメントに従って、
-既存のAPIを少しずつ実装していきます。
+This is un-official Deno TypeScript SDK of Treasure Data API.
+This SDK does not support workflow and cdp api yet.
 
 ## How to use
 
-準備中
+For details, please take a look at example

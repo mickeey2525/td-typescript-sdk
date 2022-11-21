@@ -1,8 +1,9 @@
 //import { TDClient } from "https://github.com/mickeey2525/td-typescript-sdk/raw/main/mod.ts";
-import { TDClient } from "../mod.ts";
+import { TDClient} from "../mod.ts";
 
 const apiKey = Deno.env.get("TD_API_KEY") as string;
 const td = new TDClient("https://api.treasuredata.com", apiKey);
+
 
 try {
     let query = await td.query('presto', 'sample_datasets', 'select * from www_access limit 100')
@@ -35,7 +36,7 @@ try {
 
 
 let oid_mine;
-/*
+
 try {
   const res = await td.creteDataModel("./sample.yaml");
   const resObj = await res.json();
@@ -44,7 +45,7 @@ try {
 } catch (e) {
   console.log(e);
 }
-*/
+
 
 try {
   const res = await td.getDataModels("elasticube");
@@ -65,7 +66,6 @@ try {
   console.log(e);
 }
 
-/*
 try {
   const res = await td.updateDataModel(
     "706d8c8e-395b-43d3-b39a-1eaf19a05519",
@@ -98,6 +98,6 @@ try {
   console.log(e);
 }
 
- */
-//const res = td.deleteDataModel(oid_mine);
-//console.log(JSON.stringify(res));
+
+const res = td.deleteDataModel(oid_mine);
+console.log(JSON.stringify(res));
